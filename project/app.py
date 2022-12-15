@@ -9,11 +9,12 @@ model = pickle.load(open('model.pkl', 'rb'))
 def home():
     return render_template('index.html')
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['POST','GET'])
 def predict():
     '''
     For rendering results on HTML GUI
     '''
+    print("haio")
     features = [x for x in request.form.values()]
 
     features[0] = float(features[0])
@@ -32,4 +33,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
